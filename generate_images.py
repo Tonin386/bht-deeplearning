@@ -19,30 +19,30 @@ def generating_waldos(use_background=True):
     size = 64
     im_num = 0
     # Getting head
-    for head_batch in os.listdir("Data/Cleaning/OnlyWaldoHeads"):
-        for head_name in os.listdir("Data/Cleaning/OnlyWaldoHeads/" + head_batch):
+    for head_batch in os.listdir("Data/Clean/OnlyWaldoHeads"):
+        for head_name in os.listdir("Data/Clean/OnlyWaldoHeads/" + head_batch):
             for _ in range(head_use_num):
-                for back_batch in os.listdir("Data/Cleaning/ClearedWaldo"):
-                    for back_name in os.listdir("Data/Cleaning/ClearedWaldo/" + back_batch):
+                for back_batch in os.listdir("Data/Clean/ClearedWaldo"):
+                    for back_name in os.listdir("Data/Clean/ClearedWaldo/" + back_batch):
                         for _ in range(background_use_num):
 
                             # Rotate image
                             if random.randint(0, 9) < 5:
                                 num = random.randint(-15, 15)
                                 foreground = Image.open(
-                                    "Data/Cleaning/OnlyWaldoHeads/" + head_batch + "/" + head_name).rotate(
+                                    "Data/Clean/OnlyWaldoHeads/" + head_batch + "/" + head_name).rotate(
                                     num)
                             else:
-                                foreground = Image.open("Data/Cleaning/OnlyWaldoHeads/" + head_batch + "/" + head_name)
+                                foreground = Image.open("Data/Clean/OnlyWaldoHeads/" + head_batch + "/" + head_name)
 
                             if random.randint(0, 9) < 7:
                                 scale = random.uniform(0.8, 1.5)
                                 w, h = foreground.size
                                 foreground = foreground.resize((int(w * scale), int(h * scale)), Image.ANTIALIAS)
                             if use_background:
-                                background = Image.open("Data/Cleaning/ClearedWaldo/" + back_batch + "/" + back_name)
+                                background = Image.open("Data/Clean/ClearedWaldo/" + back_batch + "/" + back_name)
                             else:
-                                background = Image.open("Data/Cleaning/black_background.jpg")
+                                background = Image.open("Data/Clean/black_background.jpg")
 
                             # Crop background and place foreground on top
                             bck_w, bck_h = background.size
