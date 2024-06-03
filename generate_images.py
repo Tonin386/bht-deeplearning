@@ -57,5 +57,4 @@ def generating_waldos(use_background=True):
                     cropped.save("Data/Waldo/" + str(im_num)+str(use_background) + ".png")
                     im_num += 1
 
-
 generating_waldos(use_background=True)
