@@ -1,6 +1,7 @@
 import os
 from PIL import Image
 import random
+from tqdm import tqdm
 
 batches = os.listdir("Data/Raw")
 # background_use_num = 1
@@ -14,11 +15,11 @@ im_num = 0
 # Use https://online.photoscissors.com/ to cut out head
 
 def generating_waldos(use_background=True):
-    background_use_num = 3
+    background_use_num = 15
     head_use_num = 6
     im_num = 0
     # Getting head
-    for head_name in os.listdir("Data/Clean/OnlyWaldoHeads"):
+    for head_name in tqdm(os.listdir("Data/Clean/OnlyWaldoHeads")):
         for _ in range(head_use_num):
             for back_name in os.listdir("Data/Clean/ClearedWaldos"):
                 for _ in range(background_use_num):
