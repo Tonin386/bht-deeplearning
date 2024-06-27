@@ -1,3 +1,5 @@
 Waldo/
 NotWaldo/
 *.pth
+__pycache__/
+.ipynb_checkpoints/
