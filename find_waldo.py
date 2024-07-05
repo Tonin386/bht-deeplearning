@@ -89,8 +89,8 @@ def draw_rectangles(image_path, coordinates):
     image.show()
 
 # Example usage
-image_path = 'Data/original-images/1.jpg'
-model_path = 'models/9997-v2_model-xxl.pth' 
+image_path = 'Data/original-images/2.jpg'
+model_path = 'models/best_model.pth' 
 
 # Step 1: Divide the image into patches
 patches_tensor, num_patches_x, num_patches_y = divide_image_into_patches(image_path)
