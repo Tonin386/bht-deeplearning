@@ -1,7 +1,7 @@
-import os
 from PIL import Image
-import random
 from tqdm import tqdm
+import random
+import os
 
 batches = os.listdir("Data/Raw")
 
@@ -10,18 +10,13 @@ x = 0
 y = 0
 im_num = 0
 
-
-# Use https://online.photoscissors.com/ to cut out head
-
 def generating_waldos(use_background=True):
     background_use_num = 28
     head_use_num = 500
     im_num = 0
-    # Getting head
     for i in tqdm(range(1, background_use_num+1)):
         for head_name in os.listdir("Data/Clean/OnlyWaldoHeads"):
             for _ in range(head_use_num):
-                # Rotate image
                 if random.randint(0, 9) < 5:
                     num = random.randint(-15, 15)
                     foreground = Image.open(
@@ -39,7 +34,6 @@ def generating_waldos(use_background=True):
                 else:
                     background = Image.open("Data/Clean/black_background.jpg")
 
-                # Crop background and place foreground on top
                 bck_w, bck_h = background.size
                 frg_w, frg_h = foreground.size
 
